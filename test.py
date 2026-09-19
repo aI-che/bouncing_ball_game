@@ -52,6 +52,8 @@ class Game:
         if self.y >= self.floor_y - self.radius:
             self.y = self.floor_y - self.radius
             self.ver_speed = 0
+            self.move_speed = 400
+
 
         self.portals.game_portal_update()
 

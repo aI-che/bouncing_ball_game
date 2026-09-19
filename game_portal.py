@@ -18,6 +18,7 @@ class PortalSys:
         )
 
         # Teleporttan hemen sonra tekrar teleport olmasını engeller
+        pygame.time.wait(100)
         self.can_teleport = True
 
     def game_portal_update(self):
@@ -33,7 +34,6 @@ class PortalSys:
         # tekrar teleport edilebilir
         if not self.ballrect.colliderect(self.portal_a) and \
            not self.ballrect.colliderect(self.portal_b):
-
             self.can_teleport = True
 
         if self.can_teleport:
@@ -43,6 +43,7 @@ class PortalSys:
 
                 self.game.x = self.portal_b.right + self.game.radius
                 self.game.y = self.portal_b.centery
+                self.game.move_speed = -self.game.move_speed
 
                 self.can_teleport = False
 
@@ -51,6 +52,7 @@ class PortalSys:
 
                 self.game.x = self.portal_a.left - self.game.radius
                 self.game.y = self.portal_a.centery
+                self.game.move_speed = -self.game.move_speed
 
                 self.can_teleport = False
 
