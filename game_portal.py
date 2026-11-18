@@ -17,7 +17,7 @@ class PortalSys:
             self.game.radius * 2
         )
 
-        # Teleporttan hemen sonra tekrar teleport olmasını engeller
+        # Prevents teleporting again right after a teleport
         pygame.time.wait(100)
         self.can_teleport = True
 
@@ -30,15 +30,15 @@ class PortalSys:
             self.game.radius * 2
         )
 
-        # Top artık hiçbir portalın içinde değilse
-        # tekrar teleport edilebilir
+        # Once the ball is out of both portals,
+        # it can teleport again
         if not self.ballrect.colliderect(self.portal_a) and \
            not self.ballrect.colliderect(self.portal_b):
             self.can_teleport = True
 
         if self.can_teleport:
 
-            # YEŞİL -> MAVİ
+            # GREEN -> BLUE
             if self.ballrect.colliderect(self.portal_a):
 
                 self.game.x = self.portal_b.right + self.game.radius
@@ -47,7 +47,7 @@ class PortalSys:
 
                 self.can_teleport = False
 
-            # MAVİ -> YEŞİL
+            # BLUE -> GREEN
             elif self.ballrect.colliderect(self.portal_b):
 
                 self.game.x = self.portal_a.left - self.game.radius

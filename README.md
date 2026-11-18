@@ -19,7 +19,7 @@ A small 2D physics game made with **Python + Pygame**: a ball that jumps under g
 
 ```bash
 pip install pygame
-python test.py
+python main.py
 ```
 
 ## Tech
